@@ -11,8 +11,8 @@ class calculator():
     3. Carpma
     4. Bolme
     5. cıkıs
-
-    (sayıların arasında bosluk bıraklmasınız. orenk = "1 2 3"
+    6. baska hesaplamalar
+    
     ------------\n
     ''')
 
@@ -38,7 +38,12 @@ class calculator():
         if secim == 5:
           self.cıkıs()
           break
-        
+
+        if secim == 6:
+          self.digerislemler()
+          break
+
+
       except ValueError:
         print("hatalı giriş yaptınız tekrar deneytiniz")
 
@@ -100,14 +105,52 @@ class calculator():
         break
 
       except ValueError:
-        float(input("lütfen sayı giriniz!\n"))
+        sayılar = float(input("lütfen sayı giriniz!\n"))
     
 
   def cıkıs(self):
      self.calısmadurmu = False
 
+  
+  # DİGER İSLEMLER MENUSU IS STARTING HERE #
+
+
+  def fizik(self):
+    import fizik
+    fizik = fizik.fizik()
+    return fizik.menu()
+  
+
+  def digerislemler(self):
+
+    print('''
+    ------------
+    1- Fizik
+    2- geri don
+    ------------\n
+    ''')
+
+    while True:
+      try:
+        secim = int(input("yapmak istediginiz islem num: "))
+        if secim == 1:
+          self.calısmadurmu = False
+          self.fizik()
+          break
+
+        if secim == 2:
+          self.menu()
+          break
+
+        else:
+          print("hatalı giriş yaptınız tekrar deneytiniz")
+
+      except ValueError:
+        print("hatalı giriş yaptınız tekrar deneytiniz")
+
 
 calculator = calculator()
 
 while calculator.calısmadurmu:
-  calculator.menu()  
+  calculator.menu()
+
